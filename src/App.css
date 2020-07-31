@@ -29,7 +29,7 @@ img{
 }
 .showcase{
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url("./images/womenShowcase.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -116,7 +116,7 @@ img{
 
 
 @media(max-width:600px){
-  body{
+  body,html{
     overflow-x: hidden;
   }
   .grid{
