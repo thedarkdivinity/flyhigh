@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useEffect} from 'react'
+import Common from './components/layout/Common'
 
-function App() {
+import Objectives from './components/layout/Objectives';
+import Showcase from './components/layout/Showcase'
+import CommonData from './mapedData/CommonData';
+import Aos from "aos";
+import "../node_modules/aos/dist/aos";
+import "../node_modules/aos/dist/aos.css";
+
+
+const App = () => {
+
+useEffect(()=>Aos.init({duration:'1600'}),[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+     <Showcase/>
+     
+     {CommonData.map((sect)=>{
+       return(
+         <Common key={sect.id} heading={sect.title}   para={sect.para}  imgsrc={sect.imgsrc}/>
+       )
+     })}
+     <Objectives/>
+     
+     
+     
+    
+     
+    </>
+  )
 }
 
-export default App;
+export default App
